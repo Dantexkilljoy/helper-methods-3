@@ -12,40 +12,19 @@
       <div>
         <%= link_to "Edit Movie", edit_movie_path(@movie) %>
       </div>
-
-      <div>
-        <%= link_to "Delete Movie", @movie, method: :delete %>
-      </div>
     </div>
 
-    <dl>
-      <dt>
-        Title
-      </dt>
-      <dd>
-        <%= @movie.title %>
-      </dd>
-
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @movie.description %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@movie.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@movie.updated_at) %> ago
-      </dd>
-    </dl>
+  
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><%= @movie.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @movie.description %></h6>
+        <p class="card-text"><%= time_ago_in_words(@movie.created_at) %> ago</p>
+        <%= link_to @movie, method: :delete, class: "btn btn-outline-secondary" do %>
+          <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+      </div>
+    </div>
+    
   </div>
 </div>
